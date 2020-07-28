@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>balltest</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <img src="atomicstyle_logo_black.png" id="ball" width="80px" />
+    </div>
+    <script>
+      var ball = document.getElementById("ball");
+      ball.style.position = "absolute";
+      ball.ondragstart = function (event) {
+        return false;
+      };
+      ball.onmousedown = function (event) {
+        document.addEventListener("mousemove", onMouseMove);
+      };
+      var onMouseMove = function (event) {
+        var x = event.clientX;
+        var y = event.clientY;
+        var width = ball.offsetWidth;
+        var height = ball.offsetHeight;
+        ball.style.top = y - height / 2 + "px";
+        ball.style.left = x - width / 2 + "px";
+      };
+      ball.onmouseup = function (event) {
+        document.removeEventListener("mousemove", onMouseMove);
+      };
+    </script>
+  </body>
+</html>
