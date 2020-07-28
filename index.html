@@ -7,26 +7,26 @@
 
   <body>
     <div id="app">
-      <img src="atomicstyle_logo_black.png" id="ball" width="80px" />
+      <img src="atomicstyle_logo_black.png" id="logo" width="80px" />
     </div>
     <script>
-      var ball = document.getElementById("ball");
-      ball.style.position = "absolute";
-      ball.ondragstart = function (event) {
+      var logo = document.getElementById("logo");
+      logo.style.position = "absolute";
+      logo.ondragstart = function (event) {
         return false;
       };
-      ball.onmousedown = function (event) {
+      logo.onmousedown = function (event) {
         document.addEventListener("mousemove", onMouseMove);
       };
       var onMouseMove = function (event) {
         var x = event.clientX;
         var y = event.clientY;
-        var width = ball.offsetWidth;
-        var height = ball.offsetHeight;
-        ball.style.top = y - height / 2 + "px";
-        ball.style.left = x - width / 2 + "px";
+        var width = logo.offsetWidth;
+        var height = logo.offsetHeight;
+        logo.style.top = y - height / 2 + "px";
+        logo.style.left = x - width / 2 + "px";
       };
-      ball.onmouseup = function (event) {
+      logo.onmouseup = function (event) {
         document.removeEventListener("mousemove", onMouseMove);
       };
     </script>
